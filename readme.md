@@ -4,7 +4,7 @@
 - change database, username, password in .env <br>
 - php artisan migrate <br>
 - php artisan db:seed <br>
--   ## Instruction for Database seeder <br>
+-   ## <h4>Instruction for Database seeder </h4><br>
         - Q: Do you wish to refresh migration before seeding, Make sure it will clear all old data ? (yes/no) [no]: <br>
             -> yes <br>
         - Q: Create Roles for users, default is admin and users? <br>
