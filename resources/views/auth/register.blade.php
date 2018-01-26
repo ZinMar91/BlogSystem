@@ -9,9 +9,6 @@
                 <form method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <legend>User Registration</legend>
-                    @foreach($errors->all() as $error)
-                        <p class="alert alert-danger">{{$error}}</p>
-                    @endforeach
                     <div class="form-group">
                         <label for="username">User Name</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="User Name">

@@ -10,7 +10,40 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+/************ AJAX Tutorials ************/
+// With Item
+Route::get('manage-item-ajax', 'ItemAjaxController@manageItemAjax');
+Route::resource('item-ajax', 'ItemAjaxController');
 
+// With Product
+Route::get('productajaxCRUD', function () {
+    $products = App\Models\Product::all();
+    return view('ajax.product.index')->with('products',$products);
+});
+Route::get('productajaxCRUD/{product_id?}',function($product_id){
+    $product = App\Models\Product::find($product_id);
+    return response()->json($product);
+});
+Route::post('productajaxCRUD',function(Request $request){   
+    $product = App\Models\Product::create($request->input());
+    return response()->json($product);
+});
+Route::put('productajaxCRUD/{product_id?}',function(Request $request,$product_id){
+    $product = App\Models\Product::find($product_id);
+    $product->name = $request->name;
+    $product->details = $request->details;
+    $product->save();
+    return response()->json($product);
+});
+Route::delete('productajaxCRUD/{product_id?}',function($product_id){
+    $product = App\Models\Product::destroy($product_id);
+    return response()->json($product);
+});
+
+
+
+
+//////////////// Original routes for blog system
 Route::get('/', function () {
     return view('welcome');
 });
